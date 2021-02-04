@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mail_nav_graph"
+    app:startDestination="@id/infoFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.example.pantomim.fragments.start.StartFragment"
+        android:label="StartFragment">
+        <action
+            android:id="@+id/action_startFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.example.pantomim.fragments.game.GameFragment"
+        android:label="GameFragment">
+        <action
+            android:id="@+id/action_gameFragment_to_scoreFragment"
+            app:destination="@id/scoreFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/scoreFragment"
+        android:name="com.example.pantomim.fragments.score.ScoreFragment"
+        android:label="ScoreFragment">
+        <argument
+            android:name="score"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_scoreFragment_to_startFragment"
+            app:popUpTo="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.example.pantomim.fragments.info.InfoFragment"
+        android:label="InfoFragment" >
+        <action
+            android:id="@+id/action_infoFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+</navigation>

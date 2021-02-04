@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="ShareViewModel"
+            type="com.example.pantomim.fragments.SharedViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragments.start.StartFragment">
+
+        <TextView
+            android:id="@+id/tv_hello"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="برای شروع کلیک کنید"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_start"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <Button
+
+            android:id="@+id/btn_start"
+            android:text="شروع"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_hello"
+            style="@style/active_button" />
+
+        <TextView
+            android:id="@+id/tv_last_score_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:text="آخرین امتیاز شما"
+            app:layout_constraintEnd_toEndOf="@+id/btn_start"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/btn_start"
+            app:layout_constraintTop_toBottomOf="@+id/btn_start" />
+
+        <TextView
+            android:id="@+id/tv_last_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@{ShareViewModel.score.toString()}"
+            app:layout_constraintEnd_toEndOf="@+id/tv_last_score_txt"
+            app:layout_constraintHorizontal_bias="0.514"
+            app:layout_constraintStart_toStartOf="@+id/tv_last_score_txt"
+            app:layout_constraintTop_toBottomOf="@+id/tv_last_score_txt"
+            tools:text="10" />
+
+        <TextView
+            android:id="@+id/record_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="بیشترین امتیاز شما"
+            app:layout_constraintEnd_toEndOf="@+id/tv_last_score"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="@+id/tv_last_score"
+            app:layout_constraintTop_toBottomOf="@+id/tv_last_score" />
+
+        <TextView
+            android:id="@+id/tv_record"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/record_text"
+            app:layout_constraintStart_toStartOf="@+id/record_text"
+            app:layout_constraintTop_toBottomOf="@+id/record_text"
+            app:layout_constraintVertical_bias="0.041"
+            tools:text="10" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

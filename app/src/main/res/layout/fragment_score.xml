@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="ShareViewModel"
+            type="com.example.pantomim.fragments.SharedViewModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragments.score.ScoreFragment">
+
+
+        <TextView
+            android:id="@+id/tv_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="10"
+            android:text="@{String.valueOf(ShareViewModel.score)}"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_score_text"
+            app:layout_constraintVertical_bias="0.148" />
+
+        <TextView
+            android:id="@+id/tv_score_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="امتیاز شما"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tv_score"
+            app:layout_constraintStart_toStartOf="@+id/tv_score"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_again"
+            style="@style/active_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="68dp"
+            android:text="دوباره بازی کنید"
+
+            app:layout_constraintEnd_toEndOf="@+id/tv_score"
+            app:layout_constraintStart_toStartOf="@+id/tv_score"
+            app:layout_constraintTop_toBottomOf="@+id/tv_score" />
+
+        <TextView
+            android:id="@+id/is_win"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@{ShareViewModel.score > 5 ? @color/green : @color/red }"
+            android:textSize="40sp"
+            tools:text="برنده"
+            android:text="@{ShareViewModel.score > 5 ? @string/winner : @string/loser}"
+            app:layout_constraintBottom_toTopOf="@+id/tv_score_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
